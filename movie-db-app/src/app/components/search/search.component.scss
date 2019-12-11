@@ -1,0 +1,18 @@
+.movie-search {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &-input {
+        width: 50%;
+    }
+
+    &-button {
+        margin: 15px;
+        height: 25px;
+        width: 75px;;
+    }
+}
