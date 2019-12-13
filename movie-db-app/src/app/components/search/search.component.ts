@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { MoviesService } from '../../services/movies.service'
 
 @Component({
@@ -13,6 +12,7 @@ export class SearchComponent implements OnInit {
   constructor( public _ms: MoviesService ) { }
 
   ngOnInit() {
+    // console.log(getDetails(x))
   }
 
   getMovie(input) {

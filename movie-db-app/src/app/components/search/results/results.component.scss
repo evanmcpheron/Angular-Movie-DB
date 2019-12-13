@@ -1,67 +1,71 @@
 .movie {
-    height: 350px;
-    margin: 20px;
+  height: 350px;
+  margin: 20px 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  background-color: #eee;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0px 5px 9px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  &-details {
+    margin: 15px;
     display: flex;
-    width: 700px;
-    border-radius: 10px;
+    flex-direction: column;
     justify-content: space-between;
-    box-shadow: 3px 3px 7px #a9a9a9;
-    position: relative;
+    // align-items: center;
 
-    &-details {
-        margin: 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+    &-info {
+      p {
+        margin: 0px;
+      }
 
-        &-info {
-
-            p {
-                margin: 0px;
-            }
-    
-            &-title {
-                font-size: 45px;
-                letter-spacing: 2px;
-                font-weight: 100;
-            }
-        }
-
-        &-go-to {
-            
-            button {
-                height: 45px;
-                font-size: 18px;
-                width: 200px;
-                border-radius: 10px;
-                outline: none;
-                color: #327ab6;
-                background-color: transparent;
-                border: 1px solid #327ab6;
-
-                &:hover {
-                    background-color: #327ab6;
-                    color: #fff;
-                    cursor: pointer;
-                }
-            }
-        }
-    }
-
-    &-poster {
-        margin: 15px;
-
-        img {
-            height: 100%;
-        }
+      &-title {
+        font-size: 45px;
+        letter-spacing: 2px;
+        font-weight: 100;
+      }
     }
 
     &-go-to {
-        height: 25px;
-        width: 25px;
-        position: absolute;
-        bottom: -5px;
-        right: -5px;
+      button {
+        height: 45px;
+        font-size: 18px;
+        width: 200px;
+        border-radius: 10px;
+        outline: none;
+        color: #327ab6;
+        background-color: transparent;
+        border: 1px solid #327ab6;
+
+        &:hover {
+          background-color: #327ab6;
+          color: #fff;
+          cursor: pointer;
+        }
+      }
     }
+  }
+
+  &-poster {
+    margin: 15px;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &-go-to {
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+  }
 }

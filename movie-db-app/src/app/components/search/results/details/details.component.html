@@ -1,0 +1,17 @@
+<div class="movie-search">
+  <input #movie class="movie-search-input" type="text" placeholder="Enter Movie Title">
+  <button routerLink="/search" class="movie-search-button" (click)="getMovie(movie)">Search</button>
+</div>
+<div class="movie">
+
+  <div class="movie" *ngFor="let movie of movie_results | slice:0:10; let i=index">
+    <p>Test</p>
+    <p>Is this thing on?</p>
+  </div>
+
+
+  <div class="movie-poster">
+    <img src={{generateImageUrl(movie.backdrop_path)}} alt="">
+  </div>
+</div>
+

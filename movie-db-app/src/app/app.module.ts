@@ -9,12 +9,14 @@ import { ResultsComponent } from './components/search/results/results.component'
 // services
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesService } from './services/movies.service';
+import { DetailsComponent } from './components/search/results/details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    ResultsComponent
+    ResultsComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
