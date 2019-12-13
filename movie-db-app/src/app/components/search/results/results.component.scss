@@ -1,0 +1,67 @@
+.movie {
+    height: 350px;
+    margin: 20px;
+    display: flex;
+    width: 700px;
+    border-radius: 10px;
+    justify-content: space-between;
+    box-shadow: 3px 3px 7px #a9a9a9;
+    position: relative;
+
+    &-details {
+        margin: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        &-info {
+
+            p {
+                margin: 0px;
+            }
+    
+            &-title {
+                font-size: 45px;
+                letter-spacing: 2px;
+                font-weight: 100;
+            }
+        }
+
+        &-go-to {
+            
+            button {
+                height: 45px;
+                font-size: 18px;
+                width: 200px;
+                border-radius: 10px;
+                outline: none;
+                color: #327ab6;
+                background-color: transparent;
+                border: 1px solid #327ab6;
+
+                &:hover {
+                    background-color: #327ab6;
+                    color: #fff;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &-poster {
+        margin: 15px;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    &-go-to {
+        height: 25px;
+        width: 25px;
+        position: absolute;
+        bottom: -5px;
+        right: -5px;
+    }
+}

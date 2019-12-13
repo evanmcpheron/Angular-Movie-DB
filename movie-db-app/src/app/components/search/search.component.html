@@ -3,7 +3,12 @@
   component.
 -->
 
-<div class="movie-search">
-  <input class="movie-search-input" type="text" placeholder="Enter Movie Title">
-  <button class="movie-search-button">Search</button>
+<div class="movie-search" *ngIf="!movie_results.length">
+  <input #movie class="movie-search-input" type="text" placeholder="Enter Movie Title">
+  <button class="movie-search-button" (click)="getMovie(movie)">Search</button>
 </div>
+
+<app-results
+  *ngIf="movie_results && movie_results.length"
+  [movie_results]="movie_results">
+</app-results>
