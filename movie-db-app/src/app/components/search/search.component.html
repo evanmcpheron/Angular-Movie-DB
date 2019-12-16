@@ -5,7 +5,6 @@
 
 <div class="movie-search" *ngIf="!movie_results.length">
   <input (keydown)="onKeydown($event)" #movies class="movie-search-input" type="text" placeholder="Enter Movie Title">
-  <button class="movie-search-button" (click)="getMovie(movies, page)">Search</button>
 </div>
 
 <app-results

@@ -1,11 +1,8 @@
-
-
-
 <div class="movie-component" *ngIf="!movie_details">
 
-<div class="movie-search">
-  <input (keydown)="onKeydown($event)" #movies class="movie-search-input" type="text" placeholder="Enter Movie Title">
-</div>
+  <div class="movie-search">
+    <input (keydown)="onKeydown($event)" #movies class="movie-search-input" type="text" placeholder="Enter Movie Title">
+  </div>
 
   <div class="movie" *ngFor="let movie of movie_results | slice:0:10; let i=index">
     <div class="movie-details">
@@ -21,7 +18,7 @@
         </p>
       </div>
       <div class="movie-details-go-to">
-        <button mat-button-raised (click)="getDetails(movie.id)">Get Details</button>
+        <button mat-button-raised (click)="getDetails(movie.id)" (click)="topFunction()" (click)="getCredits(movie.id)" >Get Details</button>
       </div>
     </div>
 
@@ -31,13 +28,10 @@
   </div>
 </div>
 
-<div class="pagination" *ngFor="let movie of movie_results.total_pages">
-  <ul>
-    <li><button>1</button></li>
-  </ul>
-</div>
 
 
-<button (click)="onBack()" *ngIf="movie_details">Back</button>
+<button class="backButton" (click)="onBack()" (click)="topFunction()" *ngIf="movie_details">Back</button>
 
-<app-details *ngIf="movie_details" [movie_details]="movie_details"></app-details>
+<app-details *ngIf="movie_details && movie_credits"
+[movie_details]="movie_details"
+[movie_credits]="movie_credits"></app-details>

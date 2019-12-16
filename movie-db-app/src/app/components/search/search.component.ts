@@ -8,6 +8,7 @@ import { MoviesService } from '../../services/movies.service'
 })
 export class SearchComponent implements OnInit {
   movie_results: any[] = [];
+  movie_pagination: any;
 
   constructor( public _ms: MoviesService ) { }
 
@@ -22,15 +23,15 @@ export class SearchComponent implements OnInit {
   onKeydown(event) {
     if (event.key === "Enter") {
       const enteredValue = event.srcElement;
-      console.log(enteredValue.value)
+      // console.log(enteredValue.value)
       this.getMovie(enteredValue);
     }
   }
 
   getMovie(input) {
-    this._ms.getMovies(input.value, '1').subscribe( data => {
+    this._ms.getMovies(input.value).subscribe( data => {
       this.movie_results = data['results'];
-      console.log(data)
+      // console.log(data)
     })
     this._ms.test_obj= {test: 'Value'}
   }

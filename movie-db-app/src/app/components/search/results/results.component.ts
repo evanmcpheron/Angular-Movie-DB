@@ -9,6 +9,7 @@ import { MoviesService } from "../../../services/movies.service";
 })
 export class ResultsComponent implements OnInit, OnChanges {
   @Input() movie_results;
+  @Input() movie_pagination;
   obj = {
     name: "Evan"
   }
@@ -16,16 +17,17 @@ export class ResultsComponent implements OnInit, OnChanges {
   @Output() someEventName: EventEmitter<any>= new EventEmitter<any>()
 
   movie_details: any;
+  movie_credits: any;
 
 
   constructor(public _ms: MoviesService) {}
 
   ngOnInit() {
-
+    // console.log(this.movie_results)
   }
 
   ngOnChanges() {
-
+    // console.log(this.movie_credits)
   }
 
   generateImageUrl(path) {
@@ -40,27 +42,37 @@ export class ResultsComponent implements OnInit, OnChanges {
   onKeydown(event) {
     if (event.key === "Enter") {
       const enteredValue = event.srcElement;
-      console.log(enteredValue.value)
       this.getMovie(enteredValue);
       enteredValue.value = '';
     }
   }
 
   getMovie(input) {
-    this._ms.getMovies(input.value, '1').subscribe(data => {
+    this._ms.getMovies(input.value).subscribe(data => {
       this.movie_results = data["results"];
     });
-    console.log(this._ms.test_obj)
+    // console.log(this._ms.test_obj)
   }
 
   this_movie_id = document.getElementsByClassName('movie-id')
 
   getDetails(x){
-    console.log(x)
+    // console.log(x)
     this._ms.getDetails(x).subscribe(data => {
       this.movie_details = data;
+    })
+  }
+
+  getCredits(id){
+    // console.log(id)
+    this._ms.getCredits(id).subscribe(data => {
+      this.movie_credits = data.cast;
       console.log(data)
     })
+  }
 
+  topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }
 }

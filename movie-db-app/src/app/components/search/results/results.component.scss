@@ -70,3 +70,63 @@
     right: -5px;
   }
 }
+
+.backButton {
+  height: 40px;
+  width: 100px;
+  position: relative;
+  top: 15px;
+  left: 15px;
+  border-radius: 5px;
+  border: 1px solid #327ab6;
+  font-size: 16px;
+  font-weight: 100;
+  outline: none;
+  color:#111;
+  letter-spacing: 3px;
+  color: #327ab6;
+
+  &:hover {
+      background: #327ab6;
+      color: #eee;
+  }
+}
+
+.movie-search {
+
+  &-input {
+      width: 50%;
+      height: 75px;
+      border: none;
+      border-radius: 5px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      font-size: 50px;
+      background:#eee;
+      outline: none;
+      margin-left: 25%;
+      margin-top: 15px;
+      &:focus{
+        border-bottom: #327ab6 solid 3px;
+        padding-left: 5px;
+      }
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .movie-search-input{
+    height: 60px;
+    font-size: 40px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .movie-search-input{
+    height: 45px;
+    font-size: 25px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .movie-search-input{
+    width: 80%;
+  }
+}

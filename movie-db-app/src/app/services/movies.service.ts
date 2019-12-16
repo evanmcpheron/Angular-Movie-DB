@@ -19,7 +19,6 @@ export class MoviesService {
   db_url: string = `https://api.themoviedb.org/3/search/movie`;
   movie_id: string = `https://api.themoviedb.org/3/movie/`;
 
-  // https:api.themoviedb.org/3/search/movie?api_key=774967ae32bbffb5cd944ea776596c9b&language=en-US&query=harry&page=1&include_adult=false
 
   test_obj;
 
@@ -27,10 +26,35 @@ export class MoviesService {
     return this._http.get(this.movie_id + `${id}?api_key=${this.api_key}&language=en-US`)
   }
 
-  getMovies(query, page) {
-    return this._http.get(this.db_url + `?api_key=${this.api_key}&query=${query}&page=${page}&include_adult=false`);
+  getMovies(query) {
+    return this._http.get(this.db_url + `?api_key=${this.api_key}&query=${query}&page=1&include_adult=false`);
   }
 
+  getCredits(id) {
+    return this._http.get(this.movie_id + `${id}/credits?api_key=${this.api_key}`)
+  }
+
+  getSimilarMovie(id) {
+    return this._http.get(this.movie_id + `${id}/similar?api_key=${this.api_key}&language=en-US&page=1`)
+  }
+
+  getPeople(query){
+    return this._http.get(this.db_url + `?api_key=${this.api_key}&query=${query}&page=1&include_adult=false`);
+  }
+
+  getTVShow(query){
+    return this._http.get(this.db_url + `?api_key=${this.api_key}&query=${query}&page=1&include_adult=false`);
+  }
+
+
+  //_____________CREDITS____________
+  // https://api.themoviedb.org/3/movie/7515/credits?api_key=774967ae32bbffb5cd944ea776596c9b
+  // __________SIMILAR MOVIES_____________
+  // https://api.themoviedb.org/3/movie/7515/similar?api_key=774967ae32bbffb5cd944ea776596c9b&language=en-US&page=1
+  // _____________PEOPLE SEARCH_____________
+  // https://api.themoviedb.org/3/search/person?api_key=774967ae32bbffb5cd944ea776596c9b&language=en-US&query=John&page=1&include_adult=false
+  // ____________TV SEARCH_______________
+  //https://api.themoviedb.org/3/search/tv?api_key=774967ae32bbffb5cd944ea776596c9b&language=en-US&query=friends&page=1
 }
 
 

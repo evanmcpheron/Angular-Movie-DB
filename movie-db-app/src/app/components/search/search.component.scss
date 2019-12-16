@@ -1,7 +1,11 @@
 // this is sass, a css pre-processor
-// it has its own syntax which makes it 
+// it has its own syntax which makes it
 // easy to work with and allows for nesting,
 // and using operators like & to link class names
+
+*{
+  background: #111;
+}
 .movie-search {
     height: 100%;
     width: 100%;
@@ -13,26 +17,34 @@
     &-input {
         width: 50%;
         height: 75px;
-        border-radius: 2px;
+        border: none;
+        border-radius: 5px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
         font-size: 50px;
-    }
-
-    &-button {
-        height: 50px;
-        width: 250px;
-        border-radius: 10px;
-        border: 1px solid #327ab6;
-        font-size: 22px;
-        font-weight: 100;
+        background:#eee;
         outline: none;
-        margin: 20px 0px;
-        letter-spacing: 3px;
-        color: #327ab6;
-
-        &:hover {
-            background: #327ab6;
-            color: #ffffff;
-            cursor: pointer;
+        &:focus{
+          border-bottom: #327ab6 solid 3px;
+          padding-left: 8px;
         }
     }
+}
+
+@media only screen and (max-width: 950px) {
+  .movie-search-input{
+    height: 60px;
+    font-size: 40px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .movie-search-input{
+    height: 45px;
+    font-size: 25px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .movie-search-input{
+    width: 80%;
+  }
 }
