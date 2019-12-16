@@ -17,15 +17,18 @@ export class MoviesService {
   constructor( private _http: HttpClient ) { }
   api_key: string = '774967ae32bbffb5cd944ea776596c9b';
   db_url: string = `https://api.themoviedb.org/3/search/movie`;
-  movie_id: string = `https://api.themoviedb.org/3/movie/`
-  // 7515?api_key=774967ae32bbffb5cd944ea776596c9b&language=en-US
+  movie_id: string = `https://api.themoviedb.org/3/movie/`;
+
+  // https:api.themoviedb.org/3/search/movie?api_key=774967ae32bbffb5cd944ea776596c9b&language=en-US&query=harry&page=1&include_adult=false
+
+  test_obj;
 
   getDetails(id) {
     return this._http.get(this.movie_id + `${id}?api_key=${this.api_key}&language=en-US`)
   }
 
-  getMovies(query) {
-    return this._http.get(this.db_url + `?api_key=${this.api_key}&query=${query}`);
+  getMovies(query, page) {
+    return this._http.get(this.db_url + `?api_key=${this.api_key}&query=${query}&page=${page}&include_adult=false`);
   }
 
 }

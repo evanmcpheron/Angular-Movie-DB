@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, OnChanges } from "@angular/core";
 import { MoviesService } from "../../../../services/movies.service";
 
 @Component({
@@ -6,20 +6,24 @@ import { MoviesService } from "../../../../services/movies.service";
   templateUrl: "./details.component.html",
   styleUrls: ["./details.component.scss"]
 })
-export class DetailsComponent implements OnInit {
-  @Input() movie_results;
-  @Input() movie_id;
+export class DetailsComponent implements OnInit, OnChanges {
+  @Input() movie_details;
 
   movies_results:any;
 
   constructor(public _ms: MoviesService) {};
 
   ngOnInit() {
-    // console.log(data);
+    console.log(this.movie_details);
+  }
+
+  ngOnChanges() {
+    console.log(this.movie_details)
   }
 
 
-  generateImageUrl(path) {
-    return `https://image.tmdb.org/t/p/w500${path}`;
+  generateImageUrl() {
+    return `https://image.tmdb.org/t/p/original${this.movie_details.backdrop_path}`;
   }
+
 }
