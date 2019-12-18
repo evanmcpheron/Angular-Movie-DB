@@ -1,43 +1,51 @@
 <div class="movie-component" *ngIf="!movie_details">
 
-<div class="background"></div>
+  <div class="background"></div>
 
   <div class="movie-search">
     <input (keydown)="onKeydown($event)" #movies class="movie-search-input" type="text" placeholder="Enter Movie Title">
   </div>
 
-  <div class="movie d-flex justify-content-start container" *ngFor="let movie of movie_results | slice:0:10; let i=index">
+  <div class="movie" *ngFor="let movie of movie_results | slice:0:10; let i=index">
+
     <img class="backdrop" src={{generateImageUrl(movie.backdrop_path)}} alt="">
     <div class="backdrop-overlay"></div>
-    <div class="movie-details col-md-9">
-      <div class="movie-details-info">
-        <p class="movie-details-info-title">
-          {{ movie.title }}
-        </p>
-        <p class="movie-details-info-info-release-date">
-          Released: {{ movie.release_date }}
-        </p>
-        <p class="movie-detials-info-popularity" style="margin-top: 15px;">
-          {{ movie.overview }}
-        </p>
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-9">
+          <p class="movie-details-info-title">
+            {{ movie.title }}
+          </p>
+          <p class="movie-details-info-info-release-date">
+            Released: {{ movie.release_date }}
+          </p>
+          <p class="movie-detials-info-popularity" style="margin-top: 15px;">
+            {{ movie.overview }}
+          </p>
+        </div>
+
+        <div class="col-md-3">
+          <img class="" src={{generateImageUrl(movie.poster_path)}} alt="">
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="detail" mat-button-raised (click)="getDetails(movie.id)" (click)="topFunction()"
+          (click)="getCredits(movie.id)">Get
+          Details</button>
       </div>
     </div>
 
-    <div class="movie-poster col-md-3 d-flex align-items-center">
-      <img class="" src={{generateImageUrl(movie.poster_path)}} alt="">
-    </div>
 
-    <div class="movie-details-go-to ">
-      <button mat-button-raised (click)="getDetails(movie.id)" (click)="topFunction()" (click)="getCredits(movie.id)" >Get Details</button>
-    </div>
   </div>
-
 </div>
+
+
 
 
 
 <button class="backButton" (click)="onBack()" (click)="topFunction()" *ngIf="movie_details">Back</button>
 
-<app-details *ngIf="movie_details && movie_credits"
-[movie_details]="movie_details"
-[movie_credits]="movie_credits"></app-details>
+<app-details *ngIf="movie_details && movie_credits" [movie_details]="movie_details" [movie_credits]="movie_credits">
+</app-details>

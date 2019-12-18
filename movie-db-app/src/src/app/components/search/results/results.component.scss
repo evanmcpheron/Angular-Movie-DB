@@ -1,0 +1,246 @@
+// .background {
+//   position: fixed;
+//   background-color: #444;
+//   top: 0;
+//   left: 0;
+//   height: 100%;
+//   width: 100%;
+//   z-index: -999;
+//  }
+
+// .movie {
+// //   height: 350px;
+// //   margin: 20px 0;
+// //   margin-left: 10%;
+// //   padding: 0;
+// //   display: flex;
+// //   width: 80%;
+// //   color: #eee;
+// //   justify-content: space-between;
+// //   position: relative;
+// //   transition: all 0.3s;
+// //   overflow: hidden;
+// //   border-radius: 4px;
+// //   z-index: 999;
+//   &:hover {
+// //     transform: translateY(-3px) scale(1.01);
+// //     box-shadow: 0px 5px 9px 0px rgba(0, 0, 0, 0.2);
+//   }
+
+//   &-details {
+//     // margin: 15px;
+// //     display: flex;
+// //     flex-direction: column;
+// //     justify-content: space-between;
+// //     // align-items: center;
+
+//     &-info {
+//       p {
+//         margin: 0px;
+//       }
+
+//       &-title {
+//         font-size: 45px;
+//         letter-spacing: 2px;
+//         font-weight: 100;
+//       }
+//     }
+
+//
+//   }
+
+//   &-poster {
+//     // margin: 15px;
+//     // width: auto;
+
+//     img {
+// //       height: 100%;
+//     }
+//   }
+
+//   &-go-to {
+//     // height: 25px;
+//     // width: 25px;
+//     // position: absolute;
+// //     bottom: -5px;
+// //     right: -5px;
+//   }
+// }
+
+.movie {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  margin: 30px 0;
+  border-radius: 5px;
+  width: 80%;
+  margin-left: 10%;
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(1.01) translateY(-5px);
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  &-details-info-title {
+    font-size: 48px;
+    font-weight: 100;
+  }
+}
+
+.detail {
+  height: 45px;
+  font-size: 18px;
+  width: 25%;
+  border-radius: 10px;
+  margin: 15px;
+  outline: none;
+  color: #327ab6;
+  background-color: transparent;
+  border: 1px solid #327ab6;
+  z-index: 999;
+
+  &:hover {
+    background-color: #327ab6;
+    color: #fff;
+    // cursor: pointer;
+  }
+}
+.backButton {
+  height: 40px;
+  width: 100px;
+  position: relative;
+  top: 15px;
+  left: 15px;
+  border-radius: 5px;
+  border: 1px solid #327ab6;
+  font-size: 16px;
+  font-weight: 100;
+  outline: none;
+  color: #111;
+  letter-spacing: 3px;
+  color: #327ab6;
+
+  &:hover {
+    background: #327ab6;
+    color: #eee;
+  }
+}
+
+.detail {
+  z-index: 999;
+}
+
+.movie-search {
+  &-input {
+    width: 50%;
+    height: 75px;
+    border: none;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: 50px;
+    background: #eee;
+    outline: none;
+    margin-left: 25%;
+    margin-top: 15px;
+    &:focus {
+      border-bottom: #327ab6 solid 3px;
+      padding-left: 5px;
+    }
+  }
+}
+
+.backdrop {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+// .movie {
+//     height: 350px;
+//     margin: 20px 0;
+//     margin-left: 10%;
+//     padding: 0;
+//     display: flex;
+//     width: 80%;
+//     color: #eee;
+//     justify-content: space-between;
+//     position: relative;
+//     transition: all 0.3s;
+//     overflow: hidden;
+//     border-radius: 4px;
+//     z-index: 999;
+//     &:hover {
+//       transform: translateY(-3px) scale(1.01);
+//       box-shadow: 0px 5px 9px 0px rgba(0, 0, 0, 0.2);
+//     }
+//     &-poster{
+//       height: 100%;
+//     }
+//     &-poster img {
+//       width: 100%;
+//     }
+//   }
+@media only screen and (max-width: 950px) {
+  .movie-search-input {
+    height: 60px;
+    font-size: 40px;
+  }
+}
+@media only screen and (max-width: 790px) {
+  .backdrop {
+    // height: 100%;
+    // width: auto;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .backdrop {
+    height: 100%;
+    width: auto;
+  }
+  .movie {
+    width: 100%;
+    margin-left: 0;
+
+    &:hover {
+      transform: scale(1), translateY(0);
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0.4);
+    }
+  }
+  .movie-search-input {
+    height: 45px;
+    font-size: 25px;
+    margin-left: 10%;
+    width: 80%;
+  }
+  .detail {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+//     .movie{
+//       height: auto;
+//       &-poster{
+//         height: 100%;
+//         width: auto;
+//         img{
+//           width: 50%;
+//           margin-left: 25%;
+//         }
+//       }
+//     }
+//   }
+
+img {
+  width: 100%;
+}

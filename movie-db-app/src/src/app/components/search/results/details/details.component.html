@@ -1,0 +1,57 @@
+<div class="overlay"></div>
+<div class="background-container">
+  <img class="posterImg" src={{generateImageUrl()}} alt="Background Image 'Alternative Poster'">
+</div>
+<div class="container">
+  <div class="center">
+    <h1>{{movie_details.original_title}}</h1>
+    <div class="row">
+      <div class="col-sm-4">
+        <img class="posterPath" src={{generatePosterUrl()}} alt="Movie Poster">
+      </div>
+      <div class="col-sm-8">
+        <div class="row centerSection">
+          <div class="col-sm-6">
+            <h3>Revenue</h3>
+            <h4>${{numberWithCommas(movie_details.revenue)}}</h4>
+          </div>
+          <div class="col-sm-6">
+            <h3>Budget</h3>
+            <h4>${{numberWithCommas(movie_details.budget)}}</h4>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <h5>Summary</h5>
+              <p>{{movie_details.overview}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <h4>{{movie_details.runtime}} minutes</h4>
+            </div>
+            <div class="col-sm-6">
+              <h4>{{movie_details.vote_average}}/10 ⭐({{movie_details.vote_count}})</h4>
+            </div>
+          </div>
+          <div class="row">
+            <h5 class="genre">Genre: {{movie_details.genres[0].name}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h2>Cast</h2>
+    </div>
+    <div class="row profile-section">
+      <div *ngFor="let people of movie_credits | slice:0:15; let i=index">
+        <div class="profile-card">
+          <img class="profilePhoto" src={{getCastPhoto(people.profile_path)}} alt="Actor Photo">
+          <h4 class="character character-name">{{people.character}}</h4>
+          <div class="line"></div>
+          <h5 class="character character">{{people.name}}</h5><br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

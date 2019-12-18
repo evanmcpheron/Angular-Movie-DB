@@ -1,0 +1,68 @@
+// this is sass, a css pre-processor
+// it has its own syntax which makes it
+// easy to work with and allows for nesting,
+// and using operators like & to link class names
+
+.background{
+  background-image: url(../../../assets/imgs/home.jpg);
+  background-size: cover;
+z-index: -2;
+height: 100%;
+width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+}
+
+.overlay{
+  background: rgba(0,0,0,.7);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.movie-search {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &-input {
+        width: 50%;
+        height: 75px;
+        border: none;
+        border-radius: 5px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        font-size: 50px;
+        background:#eee;
+        outline: none;
+        z-index: 2;
+
+        &:focus{
+          border-bottom: #327ab6 solid 3px;
+          padding-left: 8px;
+        }
+    }
+}
+
+@media only screen and (max-width: 950px) {
+  .movie-search-input{
+    height: 60px;
+    font-size: 40px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .movie-search-input{
+    height: 45px;
+    font-size: 25px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .movie-search-input{
+    width: 80%;
+  }
+}
