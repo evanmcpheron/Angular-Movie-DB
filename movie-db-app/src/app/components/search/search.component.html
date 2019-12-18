@@ -3,13 +3,14 @@
   component.
 -->
 
+
+
 <div class="movie-search" *ngIf="!movie_results.length">
+  <div class="overlay"></div>
+  <div class="background"></div>
   <input (keydown)="onKeydown($event)" #movies class="movie-search-input" type="text" placeholder="Enter Movie Title">
 </div>
 
-<app-results
-  *ngIf="movie_results && movie_results.length"
-  [movie_results]="movie_results"
+<app-results *ngIf="movie_results && movie_results.length" [movie_results]="movie_results"
   (someEventName)="anotherFunction($event)">
 </app-results>
-

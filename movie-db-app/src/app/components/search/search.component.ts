@@ -31,7 +31,7 @@ export class SearchComponent implements OnInit {
   getMovie(input) {
     this._ms.getMovies(input.value).subscribe( data => {
       this.movie_results = data['results'];
-      // console.log(data)
+      console.log(data)
     })
     this._ms.test_obj= {test: 'Value'}
   }

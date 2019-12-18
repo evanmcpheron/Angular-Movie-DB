@@ -23,7 +23,7 @@ export class ResultsComponent implements OnInit, OnChanges {
   constructor(public _ms: MoviesService) {}
 
   ngOnInit() {
-    // console.log(this.movie_results)
+    console.log(this.movie_results)
   }
 
   ngOnChanges() {
@@ -31,7 +31,7 @@ export class ResultsComponent implements OnInit, OnChanges {
   }
 
   generateImageUrl(path) {
-    return `https://image.tmdb.org/t/p/w500${path}`;
+    return `https://image.tmdb.org/t/p/original${path}`;
   }
 
   onBack() {
